@@ -1,0 +1,3 @@
+[submodule "tasks"]
+	path = tasks
+	url = git@github.com:jszwedko/continuous-delivery-pitt-tasks
