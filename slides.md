@@ -1,15 +1,28 @@
-# Continous Delivery: Reliable software develoyment through automation
+# Continous Delivery: Reliable software development through automation
 
 ---
 
-# Jesse Szwedko
-## Software Engineer
+# ![modcloth](modcloth.png)
 
-## ModCloth, Inc.
-
+## Jesse Szwedko
 ## j.szwedko@modcloth.com
+## @jesse.szwedko
 
-![modcloth](modcloth.png)
+---
+
+# Continuous Delivery
+
+_Continuous Delivery (CD) is a design practice used in software development to automate and improve the process of software delivery._ - Wikipedia
+
+![continuous delivery diagram](Continuous_Delivery_process_diagram.png)
+
+# Presenter Notes
+- Anytime you are doing something manual, automate it
+- Rule of 3s
+
+---
+
+![Automation](automation.png)
 
 ---
 
@@ -21,17 +34,8 @@
 ## Continuous feedback
 
 # Presenter Notes
-Waterfall is "similar" just with a longer timeline
-
----
-
-# Continuous Delivery
-
-_Continuous Delivery (CD) is a design practice used in software development to automate and improve the process of software delivery._ - Wikipedia
-
-
-# Presenter Notes
-
+- Waterfall is "similar" just with a longer timeline
+- Flikr deploys 10 times a day
 
 ---
 
@@ -45,6 +49,9 @@ _Continuous Delivery (CD) is a design practice used in software development to a
 - Automated deploys
 - Testing
 - Automated testing
+
+
+## Complete example
 
 ---
 
@@ -72,6 +79,10 @@ Allow the user to create ToDos
 ![ruby](ruby.jpg)
 
 ![Rails](rails.jpg)
+
+# Presenter Notes
+- Focus is on process, not technology
+- Please ask any technology questions
 
 ---
 
@@ -116,6 +127,7 @@ Centralized
 
 - CVS
 - SVN
+- Perforce
 
 Decentralized
 
@@ -124,6 +136,7 @@ Decentralized
 
 # Presenter Notes
 - See source code at any point in time
+- Source code example (show commit, checkout of older version)
 
 ---
 
@@ -160,6 +173,7 @@ Decentralized
 
 # Presenter Notes
 - Imagine collaborating on a text document (someone would have to "merge" the changes)
+- `git bisect`
 
 ---
 
@@ -176,6 +190,7 @@ Decentralized
 ![deploy](deploy.jpg)
 
 # Presenter Notes
+- Use vagrant to spin up machine similar to "production" (especially when on Windows)
 - Will not quite be push button, but we will get there
 
 ---
@@ -187,13 +202,11 @@ Decentralized
 # Developing locally example
 
 # Presenter Notes
-- Use vagrant to spin up machine similar to "production" (especially when on Windows)
 - Develop adding of description text field
 - Push to github
 - `git pull` on server
 - Broken because of data migration!
 - Are not updating JSON builders
-- Branch: add-description
 
 ---
 
@@ -220,20 +233,31 @@ Decentralized
 
 ![deploy](deploy.jpg)
 
+# Presenter Notes
+- Rule of 3s
+
 ---
 
-# Capistrano
+# Deployment tasks
 
-![capistrano](capistrano.jpg)
+- Copy code
+- Compile assets
+- Migrate database
+- Restart web server
 
-Automated deployment tool (primarily used for Ruby applications)
+---
+
+# ![capistrano](capistrano.jpg)
+
+# Presenter Notes
+- Automated deployment tool (primarily used for Ruby applications)
 
 ---
 
 # Automated deployment example
 
 # Presenter Notes
-- Set up capistrano
+- Review capistrano configuration
 - Deploy
 
 ---
@@ -245,10 +269,10 @@ Automated deployment tool (primarily used for Ruby applications)
 
 ---
 
-# Feature request: As a user, I should be able to add a due date for each todo
+# Feature request: As a user, I should be able to add a description for each todo
 
 # Presenter Notes
-- Add due date, but introduce bug with description
+- Add description but introduce bug with title (cannot save title)
 - Motivate need for tests
 
 ---
@@ -261,11 +285,15 @@ Automated deployment tool (primarily used for Ruby applications)
 
 ---
 
-Enter RSpec
+# Enter MiniTest
+
+# Presenter Notes
+- Testing framework
+- Alternatives include RSpec, TestUnit
 
 ---
 
-# Rspec example
+# MiniTest example
 
 # Presenter notes
 - Add view spec for show template to assert fields
@@ -283,38 +311,14 @@ Enter RSpec
 
 # Continuous integration server
 
-"Build" is triggered by commit to VCS
+"Build" is triggered by commit or push to VCS
 
 - Run set-up tasks
 - Run tests
 - _Build artifacts_
 
-Workflow:
-
-- Develop feature on branch
-- Push branch to central repository
-- Wait for green build
-- Merge and deploy
-
 # Presenter Notes
 - Add .travis.yml
-
----
-
-# Feature request: As a user, I should be able to add a due date for each todo
-
----
-
-# Full example
-
-# Presenter Notes
-- Create branch
-- Add due date
-- Run tests
-- Push to github
-- Wait for Travis
-- Merge
-- Deploy
 
 ---
 
@@ -326,12 +330,40 @@ Workflow:
 
 ---
 
-# Mistakes we knew we were making
+# Feature request: As a user, I should be able to add a description for each todo
+
+---
+
+# Full example
+
+# Presenter Notes
+- Create branch
+- Add description
+- Run tests
+- Push to github
+- Wait for Travis
+- Merge
+- Deploy
 
 ---
 
 # Conclusion
 
+![continuous delivery diagram](Continuous_Delivery_process_diagram.png)
+
 ---
 
-![continuous delivery diagram](Continuous_Delivery_process_diagram.png)
+# Mistakes we knew we were making
+- Skipped infrastructure configuration
+- You should try to avoid "bulding" on the server
+  - E.g. we did asset compilation
+- You should have a test stage target for deployment that is identical to production
+  - Some issues are environment specific
+
+---
+
+# ![modcloth](modcloth.png)
+
+## Jesse Szwedko
+## j.szwedko@modcloth.com
+## @jesse.szwedko
